@@ -84,7 +84,7 @@ extension Oauth.Client {
                 "publicKey"
             ]
         }
-        
+
         public enum ServerRoles: ArraySchema {
             public static let description = "Oauth server roles"
             public static let items: Schema.Type = Oauth.Role.Schemas.Reference
