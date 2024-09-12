@@ -83,7 +83,7 @@ extension Oauth.Client {
             public static let items: Schema.Type = Oauth.Role.Schemas.Reference
                 .self
         }
-        
+
         public enum RoleKeys: ArraySchema {
             public static let description = "Oauth server role keys"
             public static let items: Schema.Type = Oauth.Role.Schemas.Key
@@ -141,7 +141,7 @@ extension Oauth.Client {
                 .init("audience", Audience.self),
                 .init("privateKey", PrivateKey.self),
                 .init("publicKey", PublicKey.self),
-                .init("roles", Roles.self, required: false)
+                .init("roles", Roles.self, required: false),
             ]
         }
 
@@ -158,7 +158,7 @@ extension Oauth.Client {
                 ),
                 .init("issuer", Issuer.self),
                 .init("audience", Audience.self),
-                .init("roleKeys", RoleKeys.self, required: false)
+                .init("roleKeys", RoleKeys.self, required: false),
             ]
         }
 
@@ -178,7 +178,7 @@ extension Oauth.Client {
                 .init("audience", Audience.self),
                 .init("privateKey", PrivateKey.self),
                 .init("publicKey", PublicKey.self),
-                .init("roleKeys", RoleKeys.self, required: false)
+                .init("roleKeys", RoleKeys.self, required: false),
             ]
         }
 
@@ -198,7 +198,7 @@ extension Oauth.Client {
                 .init("audience", Audience.self, required: false),
                 .init("privateKey", PrivateKey.self, required: false),
                 .init("publicKey", PublicKey.self, required: false),
-                .init("roleKeys", RoleKeys.self, required: false)
+                .init("roleKeys", RoleKeys.self, required: false),
             ]
         }
 
