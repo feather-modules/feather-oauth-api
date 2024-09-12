@@ -56,16 +56,6 @@ extension Oauth.Client {
             ]
         }
 
-<<<<<<< Updated upstream
-        enum Subject: TextSchema {
-            static let description = "The subject of the access token"
-            static let examples = [
-                "user/client/userId"
-            ]
-        }
-
-=======
->>>>>>> Stashed changes
         enum Audience: TextSchema {
             static let description =
                 "Identifies the intended audience for the access token"
