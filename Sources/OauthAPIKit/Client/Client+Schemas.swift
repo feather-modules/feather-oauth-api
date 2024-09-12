@@ -15,7 +15,7 @@ extension Oauth.Client {
 
         enum ClientType: EnumSchema {
             static let description = "The type of the client"
-            static let allowedValues = ["app", "server"]
+            static let allowedValues = ["app", "api"]
             static let examples = [
                 "app"
             ]
@@ -56,18 +56,11 @@ extension Oauth.Client {
             ]
         }
 
-        enum Subject: TextSchema {
-            static let description = "The subject of the access token"
-            static let examples = [
-                "userId"
-            ]
-        }
-
         enum Audience: TextSchema {
             static let description =
                 "Identifies the intended audience for the access token"
             static let examples = [
-                "drive/lms/intranet"
+                "http://drive.com"
             ]
         }
 
@@ -85,9 +78,15 @@ extension Oauth.Client {
             ]
         }
 
-        public enum ServerRoles: ArraySchema {
+        public enum Roles: ArraySchema {
             public static let description = "Oauth server roles"
             public static let items: Schema.Type = Oauth.Role.Schemas.Reference
+                .self
+        }
+
+        public enum RoleKeys: ArraySchema {
+            public static let description = "Oauth server role keys"
+            public static let items: Schema.Type = Oauth.Role.Schemas.Key
                 .self
         }
 
@@ -139,11 +138,10 @@ extension Oauth.Client {
                     required: false
                 ),
                 .init("issuer", Issuer.self),
-                .init("subject", Subject.self),
                 .init("audience", Audience.self),
                 .init("privateKey", PrivateKey.self),
                 .init("publicKey", PublicKey.self),
-                .init("serverRoles", ServerRoles.self),
+                .init("roles", Roles.self, required: false),
             ]
         }
 
@@ -159,9 +157,8 @@ extension Oauth.Client {
                     required: false
                 ),
                 .init("issuer", Issuer.self),
-                .init("subject", Subject.self),
                 .init("audience", Audience.self),
-                .init("serverRoles", ServerRoles.self),
+                .init("roleKeys", RoleKeys.self, required: false),
             ]
         }
 
@@ -178,11 +175,10 @@ extension Oauth.Client {
                     required: false
                 ),
                 .init("issuer", Issuer.self),
-                .init("subject", Subject.self),
                 .init("audience", Audience.self),
                 .init("privateKey", PrivateKey.self),
                 .init("publicKey", PublicKey.self),
-                .init("serverRoles", ServerRoles.self),
+                .init("roleKeys", RoleKeys.self, required: false),
             ]
         }
 
@@ -199,11 +195,10 @@ extension Oauth.Client {
                     required: false
                 ),
                 .init("issuer", Issuer.self, required: false),
-                .init("subject", Subject.self, required: false),
                 .init("audience", Audience.self, required: false),
                 .init("privateKey", PrivateKey.self, required: false),
                 .init("publicKey", PublicKey.self, required: false),
-                .init("serverRoles", ServerRoles.self, required: false),
+                .init("roleKeys", RoleKeys.self, required: false),
             ]
         }
 
