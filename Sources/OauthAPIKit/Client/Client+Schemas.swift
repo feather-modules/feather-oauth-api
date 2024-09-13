@@ -15,7 +15,7 @@ extension Oauth.Client {
 
         enum ClientType: EnumSchema {
             static let description = "The type of the client"
-            static let allowedValues = ["app", "api"]
+            static let allowedValues = ["app", "server"]
             static let examples = [
                 "app"
             ]
@@ -60,7 +60,7 @@ extension Oauth.Client {
             static let description =
                 "Identifies the intended audience for the access token"
             static let examples = [
-                "http://drive.com"
+                "drive/lms/intranet"
             ]
         }
 
